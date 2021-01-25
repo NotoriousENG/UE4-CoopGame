@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "CoopGame",
+			"Path": "C:\\Unreal Projects\\CoopGame\\Source\\CoopGame.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "CoopGameEditor",
+			"Path": "C:\\Unreal Projects\\CoopGame\\Source\\CoopGameEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

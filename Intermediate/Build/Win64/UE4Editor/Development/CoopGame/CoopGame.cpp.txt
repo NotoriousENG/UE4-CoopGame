@@ -1,0 +1,2 @@
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\Definitions.CoopGame.h
+C:\Unreal Projects\CoopGame\Source\CoopGame\CoopGame.h

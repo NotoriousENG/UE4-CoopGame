@@ -1,0 +1,5 @@
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\Definitions.CoopGame.h
+C:\Unreal Projects\CoopGame\Source\CoopGame/Public/SProjectileWeapon.h
+C:\Unreal Projects\CoopGame\Source\CoopGame\Public\SWeapon.h
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\SWeapon.generated.h
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\SProjectileWeapon.generated.h
