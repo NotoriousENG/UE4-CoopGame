@@ -20,11 +20,13 @@ class AActor;
 #define CoopGame_Source_CoopGame_Public_AI_STrackerBot_h_15_SPARSE_DATA
 #define CoopGame_Source_CoopGame_Public_AI_STrackerBot_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execOnCheckNearbyBots); \
 	DECLARE_FUNCTION(execHandleTakeDamage);
 
 
 #define CoopGame_Source_CoopGame_Public_AI_STrackerBot_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execOnCheckNearbyBots); \
 	DECLARE_FUNCTION(execHandleTakeDamage);
 
 
@@ -82,7 +84,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASTrackerBot); \
 	FORCEINLINE static uint32 __PPO__ExplosionDamage() { return STRUCT_OFFSET(ASTrackerBot, ExplosionDamage); } \
 	FORCEINLINE static uint32 __PPO__SelfDamageInterval() { return STRUCT_OFFSET(ASTrackerBot, SelfDamageInterval); } \
 	FORCEINLINE static uint32 __PPO__SelfDestructSound() { return STRUCT_OFFSET(ASTrackerBot, SelfDestructSound); } \
-	FORCEINLINE static uint32 __PPO__ExplodeSound() { return STRUCT_OFFSET(ASTrackerBot, ExplodeSound); }
+	FORCEINLINE static uint32 __PPO__ExplodeSound() { return STRUCT_OFFSET(ASTrackerBot, ExplodeSound); } \
+	FORCEINLINE static uint32 __PPO__MaxPowerLevel() { return STRUCT_OFFSET(ASTrackerBot, MaxPowerLevel); }
 
 
 #define CoopGame_Source_CoopGame_Public_AI_STrackerBot_h_12_PROLOG

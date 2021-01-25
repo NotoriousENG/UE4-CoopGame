@@ -78,6 +78,14 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
 	USoundCue* ExplodeSound;
+
+	UFUNCTION()
+	void OnCheckNearbyBots();
+
+	int32 PowerLevel;
+
+	UPROPERTY(EditDefaultsOnly, Category = "TrackerBot")
+	int32 MaxPowerLevel;
 	
 public:	
 	// Called every frame
