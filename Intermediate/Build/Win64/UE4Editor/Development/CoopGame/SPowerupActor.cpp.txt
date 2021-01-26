@@ -1,0 +1,4 @@
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Development\CoopGame\Definitions.CoopGame.h
+C:\Unreal Projects\CoopGame\Source\CoopGame\Public\SPowerupActor.h
+C:\Unreal Projects\CoopGame\Intermediate\Build\Win64\UE4Editor\Inc\CoopGame\SPowerupActor.generated.h
+C:\Program Files\Epic Games\UE_4.25\Engine\Source\Runtime\Engine\Public\Net/UnrealNetwork.h

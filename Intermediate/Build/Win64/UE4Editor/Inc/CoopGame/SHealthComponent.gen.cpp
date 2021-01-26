@@ -92,6 +92,14 @@ void EmptyLinkFunctionForGeneratedCodeSHealthComponent() {}
 		}
 		return ReturnFunction;
 	}
+	DEFINE_FUNCTION(USHealthComponent::execHeal)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_HealAmount);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Heal(Z_Param_HealAmount);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(USHealthComponent::execHandleTakeAnyDamage)
 	{
 		P_GET_OBJECT(AActor,Z_Param_DamagedActor);
@@ -117,6 +125,7 @@ void EmptyLinkFunctionForGeneratedCodeSHealthComponent() {}
 		UClass* Class = USHealthComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "HandleTakeAnyDamage", &USHealthComponent::execHandleTakeAnyDamage },
+			{ "Heal", &USHealthComponent::execHeal },
 			{ "OnRep_Health", &USHealthComponent::execOnRep_Health },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -174,6 +183,39 @@ void EmptyLinkFunctionForGeneratedCodeSHealthComponent() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_USHealthComponent_HandleTakeAnyDamage_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_USHealthComponent_Heal_Statics
+	{
+		struct SHealthComponent_eventHeal_Parms
+		{
+			float HealAmount;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_HealAmount;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_USHealthComponent_Heal_Statics::NewProp_HealAmount = { "HealAmount", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SHealthComponent_eventHeal_Parms, HealAmount), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USHealthComponent_Heal_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USHealthComponent_Heal_Statics::NewProp_HealAmount,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_USHealthComponent_Heal_Statics::Function_MetaDataParams[] = {
+		{ "Category", "HealthComponent" },
+		{ "ModuleRelativePath", "Components/SHealthComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_USHealthComponent_Heal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_USHealthComponent, nullptr, "Heal", nullptr, nullptr, sizeof(SHealthComponent_eventHeal_Parms), Z_Construct_UFunction_USHealthComponent_Heal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_USHealthComponent_Heal_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_USHealthComponent_Heal_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_USHealthComponent_Heal_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_USHealthComponent_Heal()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_USHealthComponent_Heal_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -242,6 +284,7 @@ void EmptyLinkFunctionForGeneratedCodeSHealthComponent() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_USHealthComponent_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_USHealthComponent_HandleTakeAnyDamage, "HandleTakeAnyDamage" }, // 2050252045
+		{ &Z_Construct_UFunction_USHealthComponent_Heal, "Heal" }, // 3520419400
 		{ &Z_Construct_UFunction_USHealthComponent_OnRep_Health, "OnRep_Health" }, // 1600350565
 	};
 #if WITH_METADATA
@@ -305,7 +348,7 @@ void EmptyLinkFunctionForGeneratedCodeSHealthComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(USHealthComponent, 2168828665);
+	IMPLEMENT_CLASS(USHealthComponent, 1455251641);
 	template<> COOPGAME_API UClass* StaticClass<USHealthComponent>()
 	{
 		return USHealthComponent::StaticClass();
