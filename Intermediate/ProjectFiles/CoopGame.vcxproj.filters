@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\CoopGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{F829CD4E-A567-4FC9-BA22-FEE8116AED7A}</UniqueIdentifier>
+      <UniqueIdentifier>{C248ED6D-F71F-4465-B7DD-DD80FA5F58B0}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame.Target.cs">
       <Filter>Source</Filter>
@@ -14,7 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <Filter Include="Config">
-      <UniqueIdentifier>{869F0138-9C9E-4B71-A6CC-E99D5BAF49E6}</UniqueIdentifier>
+      <UniqueIdentifier>{12E0127A-453B-4CB7-B86B-1F81093A4B84}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -29,7 +29,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\CoopGame">
-      <UniqueIdentifier>{0E58257C-D38A-4E3D-AB12-C6A7898289EF}</UniqueIdentifier>
+      <UniqueIdentifier>{2ADAB529-FF59-44A4-84F2-4EC61F34A730}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\CoopGame\CoopGame.Build.cs">
       <Filter>Source\CoopGame</Filter>
@@ -40,14 +40,8 @@
     <ClInclude Include="..\..\Source\CoopGame\CoopGame.h">
       <Filter>Source\CoopGame</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\CoopGame\CoopGameGameModeBase.cpp">
-      <Filter>Source\CoopGame</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\CoopGame\CoopGameGameModeBase.h">
-      <Filter>Source\CoopGame</Filter>
-    </ClInclude>
     <Filter Include="Source\CoopGame\Components">
-      <UniqueIdentifier>{F9521BE9-104D-469B-B408-074814E31531}</UniqueIdentifier>
+      <UniqueIdentifier>{519FB194-7E00-4AA0-BFE0-B3777AB5C5BF}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CoopGame\Components\SHealthComponent.cpp">
       <Filter>Source\CoopGame\Components</Filter>
@@ -56,12 +50,18 @@
       <Filter>Source\CoopGame\Components</Filter>
     </ClInclude>
     <Filter Include="Source\CoopGame\Private">
-      <UniqueIdentifier>{24330051-2F79-449B-BFC0-3D41553BCF35}</UniqueIdentifier>
+      <UniqueIdentifier>{934066E0-1C84-4BD3-BFB6-2F64D0B4C481}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CoopGame\Private\SCharacter.cpp">
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CoopGame\Private\SExplosive.cpp">
+      <Filter>Source\CoopGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CoopGame\Private\SGameMode.cpp">
+      <Filter>Source\CoopGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CoopGame\Private\SGameState.cpp">
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\CoopGame\Private\SPickupActor.cpp">
@@ -77,18 +77,24 @@
       <Filter>Source\CoopGame\Private</Filter>
     </ClCompile>
     <Filter Include="Source\CoopGame\Private\AI">
-      <UniqueIdentifier>{186860C2-476D-442A-8626-24D506996A4E}</UniqueIdentifier>
+      <UniqueIdentifier>{9F014D1D-98DD-4AA0-B894-EABB1132E930}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\CoopGame\Private\AI\STrackerBot.cpp">
       <Filter>Source\CoopGame\Private\AI</Filter>
     </ClCompile>
     <Filter Include="Source\CoopGame\Public">
-      <UniqueIdentifier>{8752A56B-1213-4C87-85BB-38522CA86577}</UniqueIdentifier>
+      <UniqueIdentifier>{74FA518E-D34E-45CE-B09B-C160E288A8F8}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\CoopGame\Public\SCharacter.h">
       <Filter>Source\CoopGame\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CoopGame\Public\SExplosive.h">
+      <Filter>Source\CoopGame\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CoopGame\Public\SGameMode.h">
+      <Filter>Source\CoopGame\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CoopGame\Public\SGameState.h">
       <Filter>Source\CoopGame\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\CoopGame\Public\SPickupActor.h">
@@ -104,7 +110,7 @@
       <Filter>Source\CoopGame\Public</Filter>
     </ClInclude>
     <Filter Include="Source\CoopGame\Public\AI">
-      <UniqueIdentifier>{73607D3B-2623-4C3A-A571-353374A94358}</UniqueIdentifier>
+      <UniqueIdentifier>{FD834A2A-04DA-4225-8504-81013C6F6497}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\CoopGame\Public\AI\STrackerBot.h">
       <Filter>Source\CoopGame\Public\AI</Filter>
