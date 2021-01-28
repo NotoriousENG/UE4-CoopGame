@@ -5,6 +5,7 @@
 
 
 #include "SGameState.h"
+#include "SPlayerState.h"
 #include "CoopGame/Components/SHealthComponent.h"
 
 ASGameMode::ASGameMode()
@@ -12,6 +13,7 @@ ASGameMode::ASGameMode()
 	TimeBetweenWaves = 2.0f;
 
 	GameStateClass = ASGameState::StaticClass();
+	PlayerStateClass = ASPlayerState::StaticClass();
 
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.TickInterval = 1.0f;
@@ -40,6 +42,8 @@ void ASGameMode::PrepareForNextWave()
 	GetWorldTimerManager().SetTimer(TimerHandle_NextWaveStart, this, &ASGameMode::StartWave, TimeBetweenWaves, false);
 
 	SetWaveState(EWaveState::WaitingToStart);
+
+	RestartDeadPlayers();
 }
 
 void ASGameMode::CheckWaveState()
@@ -114,6 +118,18 @@ void ASGameMode::SetWaveState(EWaveState NewState)
 	if (ensureAlways(GS))
 	{
 		GS->SetWaveState(NewState);
+	}
+}
+
+void ASGameMode::RestartDeadPlayers()
+{
+	for (FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; ++It)
+	{
+		APlayerController* PC = It->Get();
+		if (PC && PC->GetPawn() == nullptr)
+		{
+			RestartPlayer(PC);
+		}
 	}
 }
 
