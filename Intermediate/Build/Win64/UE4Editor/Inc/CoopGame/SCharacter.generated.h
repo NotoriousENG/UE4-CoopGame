@@ -12,6 +12,7 @@ class USHealthComponent;
 class UDamageType;
 class AController;
 class AActor;
+class ASWeapon;
 #ifdef COOPGAME_SCharacter_generated_h
 #error "SCharacter.generated.h already included, missing '#pragma once' in SCharacter.h"
 #endif
@@ -22,14 +23,16 @@ class AActor;
  \
 	DECLARE_FUNCTION(execStopFire); \
 	DECLARE_FUNCTION(execStartFire); \
-	DECLARE_FUNCTION(execOnHealthChanged);
+	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execAddWeaponToInventory);
 
 
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execStopFire); \
 	DECLARE_FUNCTION(execStartFire); \
-	DECLARE_FUNCTION(execOnHealthChanged);
+	DECLARE_FUNCTION(execOnHealthChanged); \
+	DECLARE_FUNCTION(execAddWeaponToInventory);
 
 
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_INCLASS_NO_PURE_DECLS \
@@ -44,6 +47,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		CurrentWeapon=NETFIELD_REP_START, \
+		EquipedWeaponClasses, \
 		bDied, \
 		NETFIELD_REP_END=bDied	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
@@ -61,6 +65,7 @@ public: \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		CurrentWeapon=NETFIELD_REP_START, \
+		EquipedWeaponClasses, \
 		bDied, \
 		NETFIELD_REP_END=bDied	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
@@ -97,7 +102,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASCharacter); \
 	FORCEINLINE static uint32 __PPO__ZoomedFOV() { return STRUCT_OFFSET(ASCharacter, ZoomedFOV); } \
 	FORCEINLINE static uint32 __PPO__ZoomInterpSpeed() { return STRUCT_OFFSET(ASCharacter, ZoomInterpSpeed); } \
 	FORCEINLINE static uint32 __PPO__CurrentWeapon() { return STRUCT_OFFSET(ASCharacter, CurrentWeapon); } \
-	FORCEINLINE static uint32 __PPO__StarterWeaponClass() { return STRUCT_OFFSET(ASCharacter, StarterWeaponClass); } \
+	FORCEINLINE static uint32 __PPO__EquipedWeaponClasses() { return STRUCT_OFFSET(ASCharacter, EquipedWeaponClasses); } \
 	FORCEINLINE static uint32 __PPO__WeaponAttachSocketName() { return STRUCT_OFFSET(ASCharacter, WeaponAttachSocketName); } \
 	FORCEINLINE static uint32 __PPO__bDied() { return STRUCT_OFFSET(ASCharacter, bDied); }
 

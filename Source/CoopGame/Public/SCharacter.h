@@ -61,8 +61,17 @@ protected:
 	UPROPERTY(Replicated)
 	ASWeapon* CurrentWeapon;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Player")
-	TSubclassOf<ASWeapon> StarterWeaponClass;
+	UPROPERTY(EditDefaultsOnly, Replicated, Category = "Player")
+	TArray<TSubclassOf<ASWeapon>> EquipedWeaponClasses;
+
+	int CurrentWeaponClassIndex;
+
+	void SpawnWeapon(TSubclassOf<ASWeapon> WeaponClassToSpawn);
+
+	void SwitchWeapon();
+
+	UFUNCTION(BlueprintCallable)
+	void AddWeaponToInventory(TSubclassOf<ASWeapon> WeaponClassToAdd);
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Player")
 	FName WeaponAttachSocketName;

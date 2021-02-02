@@ -36,6 +36,8 @@ ASCharacter::ASCharacter()
 	ZoomedFOV = 65.0f;
 	ZoomInterpSpeed = 20.0f;
 
+	CurrentWeaponClassIndex = 0;
+
 	WeaponAttachSocketName = "WeaponSocket";
 }
 
@@ -49,16 +51,9 @@ void ASCharacter::BeginPlay()
 	
 	if (GetLocalRole() == ROLE_Authority)
 	{
-		// Spawn a DefaultWeapon
-		FActorSpawnParameters SpawnParams;
-		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
-		CurrentWeapon = GetWorld()->SpawnActor<ASWeapon>(StarterWeaponClass, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
-		if (CurrentWeapon)
-		{
-			CurrentWeapon->SetOwner(this);
-			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
-		}
+		CurrentWeaponClassIndex = 0;
+		
+		SpawnWeapon(EquipedWeaponClasses[CurrentWeaponClassIndex]);
 	}
 }
 
@@ -118,8 +113,49 @@ void ASCharacter::StopFire()
 	}
 }
 
+void ASCharacter::SpawnWeapon(TSubclassOf<ASWeapon> WeaponClassToSpawn)
+{
+	// Spawn a DefaultWeapon
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+	CurrentWeapon = GetWorld()->SpawnActor<ASWeapon>(WeaponClassToSpawn, FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+	if (CurrentWeapon)
+	{
+		CurrentWeapon->SetOwner(this);
+		CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponAttachSocketName);
+	}
+}
+
+void ASCharacter::SwitchWeapon()
+{
+	if (EquipedWeaponClasses.Num() > 1)
+	{
+		TSubclassOf<ASWeapon> next_weapon;
+
+		CurrentWeaponClassIndex++;
+		if (CurrentWeaponClassIndex >= EquipedWeaponClasses.Num())
+		{
+			CurrentWeaponClassIndex = 0;
+		}
+		next_weapon = EquipedWeaponClasses[CurrentWeaponClassIndex];
+
+		CurrentWeapon->Destroy();
+		
+		SpawnWeapon(next_weapon);
+	}
+}
+
+void ASCharacter::AddWeaponToInventory(TSubclassOf<ASWeapon> WeaponClassToAdd)
+{
+	if (GetLocalRole() == ROLE_Authority && !EquipedWeaponClasses.Contains(WeaponClassToAdd))
+	{
+		EquipedWeaponClasses.Add(WeaponClassToAdd);
+	}
+}
+
 void ASCharacter::OnHealthChanged(USHealthComponent* OwningHealthComp, float Health, float HealthDelta,
-	const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
+                                  const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
 	if (Health <= 0.0f && !bDied)
 	{
@@ -169,6 +205,8 @@ void ASCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponen
 
 	PlayerInputComponent->BindAction("Fire", IE_Pressed, this, &ASCharacter::StartFire);
 	PlayerInputComponent->BindAction("Fire", IE_Released, this, &ASCharacter::StopFire);
+
+	PlayerInputComponent->BindAction("ChangeWeapon", IE_Pressed, this, &ASCharacter::SwitchWeapon);
 }
 
 FVector ASCharacter::GetPawnViewLocation() const

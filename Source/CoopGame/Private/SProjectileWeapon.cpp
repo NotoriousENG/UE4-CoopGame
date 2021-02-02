@@ -19,6 +19,7 @@ void ASProjectileWeapon::Fire()
 		ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		// ActorSpawnParams.Instigator = Cast<APawn>(MyOwner);
 
-		GetWorld()->SpawnActor<AActor>(ProjectileClass, MuzzleLocation, EyeRotation, ActorSpawnParams);	
+		AActor* proj = GetWorld()->SpawnActor<AActor>(ProjectileClass, MuzzleLocation, EyeRotation, ActorSpawnParams);
+		proj->SetOwner(MyOwner);
 	}
 }

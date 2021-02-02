@@ -17,12 +17,12 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	COOPGAME_API UClass* Z_Construct_UClass_ASCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_CoopGame();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	COOPGAME_API UClass* Z_Construct_UClass_ASWeapon_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
 	COOPGAME_API UClass* Z_Construct_UClass_USHealthComponent_NoRegister();
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	COOPGAME_API UClass* Z_Construct_UClass_ASWeapon_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
@@ -53,15 +53,56 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		P_THIS->OnHealthChanged(Z_Param_OwningHealthComp,Z_Param_Health,Z_Param_HealthDelta,Z_Param_DamageType,Z_Param_InstigatedBy,Z_Param_DamageCauser);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASCharacter::execAddWeaponToInventory)
+	{
+		P_GET_OBJECT(UClass,Z_Param_WeaponClassToAdd);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->AddWeaponToInventory(Z_Param_WeaponClassToAdd);
+		P_NATIVE_END;
+	}
 	void ASCharacter::StaticRegisterNativesASCharacter()
 	{
 		UClass* Class = ASCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AddWeaponToInventory", &ASCharacter::execAddWeaponToInventory },
 			{ "OnHealthChanged", &ASCharacter::execOnHealthChanged },
 			{ "StartFire", &ASCharacter::execStartFire },
 			{ "StopFire", &ASCharacter::execStopFire },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics
+	{
+		struct SCharacter_eventAddWeaponToInventory_Parms
+		{
+			TSubclassOf<ASWeapon>  WeaponClassToAdd;
+		};
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_WeaponClassToAdd;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::NewProp_WeaponClassToAdd = { "WeaponClassToAdd", nullptr, (EPropertyFlags)0x0014000000000080, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SCharacter_eventAddWeaponToInventory_Parms, WeaponClassToAdd), Z_Construct_UClass_ASWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::NewProp_WeaponClassToAdd,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "AddWeaponToInventory", nullptr, nullptr, sizeof(SCharacter_eventAddWeaponToInventory_Parms), Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_AddWeaponToInventory()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASCharacter_OnHealthChanged_Statics
 	{
@@ -198,9 +239,10 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_WeaponAttachSocketName;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StarterWeaponClass_MetaData[];
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EquipedWeaponClasses_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_StarterWeaponClass;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_EquipedWeaponClasses;
+		static const UE4CodeGen_Private::FClassPropertyParams NewProp_EquipedWeaponClasses_Inner;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentWeapon_MetaData[];
 #endif
@@ -234,6 +276,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_CoopGame,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASCharacter_AddWeaponToInventory, "AddWeaponToInventory" }, // 413502934
 		{ &Z_Construct_UFunction_ASCharacter_OnHealthChanged, "OnHealthChanged" }, // 809125137
 		{ &Z_Construct_UFunction_ASCharacter_StartFire, "StartFire" }, // 3969871794
 		{ &Z_Construct_UFunction_ASCharacter_StopFire, "StopFire" }, // 917934503
@@ -264,12 +307,13 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 #endif
 	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName = { "WeaponAttachSocketName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, WeaponAttachSocketName), METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_StarterWeaponClass_MetaData[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_MetaData[] = {
 		{ "Category", "Player" },
 		{ "ModuleRelativePath", "Public/SCharacter.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_StarterWeaponClass = { "StarterWeaponClass", nullptr, (EPropertyFlags)0x0024080000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, StarterWeaponClass), Z_Construct_UClass_ASWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_StarterWeaponClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_StarterWeaponClass_MetaData)) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses = { "EquipedWeaponClasses", nullptr, (EPropertyFlags)0x0024080000010021, UE4CodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, EquipedWeaponClasses), EArrayPropertyFlags::None, METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_MetaData)) };
+	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_Inner = { "EquipedWeaponClasses", nullptr, (EPropertyFlags)0x0004000000000000, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, 0, Z_Construct_UClass_ASWeapon_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(nullptr, 0) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeapon_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SCharacter.h" },
@@ -319,7 +363,8 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_bDied,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_StarterWeaponClass,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_ZoomInterpSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_ZoomedFOV,
@@ -354,7 +399,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASCharacter, 4191295839);
+	IMPLEMENT_CLASS(ASCharacter, 1914628800);
 	template<> COOPGAME_API UClass* StaticClass<ASCharacter>()
 	{
 		return ASCharacter::StaticClass();
@@ -364,10 +409,12 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	void ASCharacter::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 	{
 		static const FName Name_CurrentWeapon(TEXT("CurrentWeapon"));
+		static const FName Name_EquipedWeaponClasses(TEXT("EquipedWeaponClasses"));
 		static const FName Name_bDied(TEXT("bDied"));
 
 		const bool bIsValid = true
 			&& Name_CurrentWeapon == ClassReps[(int32)ENetFields_Private::CurrentWeapon].Property->GetFName()
+			&& Name_EquipedWeaponClasses == ClassReps[(int32)ENetFields_Private::EquipedWeaponClasses].Property->GetFName()
 			&& Name_bDied == ClassReps[(int32)ENetFields_Private::bDied].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ASCharacter"));

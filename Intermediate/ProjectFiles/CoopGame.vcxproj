@@ -288,6 +288,9 @@
     <None Include="..\..\Source\CoopGameEditor.Target.cs"/>
     <None Include="..\..\.gitattributes"/>
     <None Include="..\..\.gitignore"/>
+    <None Include="..\..\CoopGame.png"/>
+    <None Include="..\..\demo.png"/>
+    <None Include="..\..\README.md"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
     <None Include="..\..\Config\DefaultGame.ini"/>
