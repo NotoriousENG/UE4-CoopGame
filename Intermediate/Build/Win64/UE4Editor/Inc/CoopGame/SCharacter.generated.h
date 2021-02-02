@@ -20,21 +20,29 @@ class ASWeapon;
 
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_SPARSE_DATA
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_RPC_WRAPPERS \
+	virtual bool ServerSwitchWeapon_Validate(); \
+	virtual void ServerSwitchWeapon_Implementation(); \
  \
 	DECLARE_FUNCTION(execStopFire); \
 	DECLARE_FUNCTION(execStartFire); \
 	DECLARE_FUNCTION(execOnHealthChanged); \
-	DECLARE_FUNCTION(execAddWeaponToInventory);
+	DECLARE_FUNCTION(execAddWeaponToInventory); \
+	DECLARE_FUNCTION(execServerSwitchWeapon);
 
 
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool ServerSwitchWeapon_Validate(); \
+	virtual void ServerSwitchWeapon_Implementation(); \
  \
 	DECLARE_FUNCTION(execStopFire); \
 	DECLARE_FUNCTION(execStartFire); \
 	DECLARE_FUNCTION(execOnHealthChanged); \
-	DECLARE_FUNCTION(execAddWeaponToInventory);
+	DECLARE_FUNCTION(execAddWeaponToInventory); \
+	DECLARE_FUNCTION(execServerSwitchWeapon);
 
 
+#define CoopGame_Source_CoopGame_Public_SCharacter_h_16_EVENT_PARMS
+#define CoopGame_Source_CoopGame_Public_SCharacter_h_16_CALLBACK_WRAPPERS
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASCharacter(); \
@@ -48,6 +56,7 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		CurrentWeapon=NETFIELD_REP_START, \
 		EquipedWeaponClasses, \
+		CurrentWeaponClassIndex, \
 		bDied, \
 		NETFIELD_REP_END=bDied	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
@@ -66,6 +75,7 @@ public: \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
 		CurrentWeapon=NETFIELD_REP_START, \
 		EquipedWeaponClasses, \
+		CurrentWeaponClassIndex, \
 		bDied, \
 		NETFIELD_REP_END=bDied	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
@@ -103,17 +113,22 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASCharacter); \
 	FORCEINLINE static uint32 __PPO__ZoomInterpSpeed() { return STRUCT_OFFSET(ASCharacter, ZoomInterpSpeed); } \
 	FORCEINLINE static uint32 __PPO__CurrentWeapon() { return STRUCT_OFFSET(ASCharacter, CurrentWeapon); } \
 	FORCEINLINE static uint32 __PPO__EquipedWeaponClasses() { return STRUCT_OFFSET(ASCharacter, EquipedWeaponClasses); } \
+	FORCEINLINE static uint32 __PPO__CurrentWeaponClassIndex() { return STRUCT_OFFSET(ASCharacter, CurrentWeaponClassIndex); } \
 	FORCEINLINE static uint32 __PPO__WeaponAttachSocketName() { return STRUCT_OFFSET(ASCharacter, WeaponAttachSocketName); } \
 	FORCEINLINE static uint32 __PPO__bDied() { return STRUCT_OFFSET(ASCharacter, bDied); }
 
 
-#define CoopGame_Source_CoopGame_Public_SCharacter_h_13_PROLOG
+#define CoopGame_Source_CoopGame_Public_SCharacter_h_13_PROLOG \
+	CoopGame_Source_CoopGame_Public_SCharacter_h_16_EVENT_PARMS
+
+
 #define CoopGame_Source_CoopGame_Public_SCharacter_h_16_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_PRIVATE_PROPERTY_OFFSET \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_SPARSE_DATA \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_RPC_WRAPPERS \
+	CoopGame_Source_CoopGame_Public_SCharacter_h_16_CALLBACK_WRAPPERS \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_INCLASS \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_STANDARD_CONSTRUCTORS \
 public: \
@@ -126,6 +141,7 @@ public: \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_PRIVATE_PROPERTY_OFFSET \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_SPARSE_DATA \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_SCharacter_h_16_CALLBACK_WRAPPERS \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_INCLASS_NO_PURE_DECLS \
 	CoopGame_Source_CoopGame_Public_SCharacter_h_16_ENHANCED_CONSTRUCTORS \
 private: \

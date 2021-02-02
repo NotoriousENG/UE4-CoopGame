@@ -64,11 +64,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Replicated, Category = "Player")
 	TArray<TSubclassOf<ASWeapon>> EquipedWeaponClasses;
 
+	UPROPERTY(Replicated)
 	int CurrentWeaponClassIndex;
 
 	void SpawnWeapon(TSubclassOf<ASWeapon> WeaponClassToSpawn);
 
 	void SwitchWeapon();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+	void ServerSwitchWeapon();
 
 	UFUNCTION(BlueprintCallable)
 	void AddWeaponToInventory(TSubclassOf<ASWeapon> WeaponClassToAdd);
