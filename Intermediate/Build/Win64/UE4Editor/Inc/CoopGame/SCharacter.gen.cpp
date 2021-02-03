@@ -73,6 +73,11 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		P_THIS->ServerSwitchWeapon_Implementation();
 		P_NATIVE_END;
 	}
+	static FName NAME_ASCharacter_OnDied = FName(TEXT("OnDied"));
+	void ASCharacter::OnDied()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_ASCharacter_OnDied),NULL);
+	}
 	static FName NAME_ASCharacter_ServerSwitchWeapon = FName(TEXT("ServerSwitchWeapon"));
 	void ASCharacter::ServerSwitchWeapon()
 	{
@@ -119,6 +124,29 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_AddWeaponToInventory_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ASCharacter_OnDied_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASCharacter_OnDied_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Public/SCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASCharacter_OnDied_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASCharacter, nullptr, "OnDied", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASCharacter_OnDied_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASCharacter_OnDied_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASCharacter_OnDied()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASCharacter_OnDied_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -317,6 +345,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ASCharacter_AddWeaponToInventory, "AddWeaponToInventory" }, // 413502934
+		{ &Z_Construct_UFunction_ASCharacter_OnDied, "OnDied" }, // 926964185
 		{ &Z_Construct_UFunction_ASCharacter_OnHealthChanged, "OnHealthChanged" }, // 809125137
 		{ &Z_Construct_UFunction_ASCharacter_ServerSwitchWeapon, "ServerSwitchWeapon" }, // 105727524
 		{ &Z_Construct_UFunction_ASCharacter_StartFire, "StartFire" }, // 3969871794
@@ -440,7 +469,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASCharacter, 2019739807);
+	IMPLEMENT_CLASS(ASCharacter, 3343414882);
 	template<> COOPGAME_API UClass* StaticClass<ASCharacter>()
 	{
 		return ASCharacter::StaticClass();

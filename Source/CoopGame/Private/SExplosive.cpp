@@ -29,6 +29,8 @@ ASExplosive::ASExplosive()
 	RadialForceComp->bIgnoreOwningActor = true;
 	RadialForceComp->ImpulseStrength = ExplosionImpulse;
 
+	Damage = 100.0f;
+
 	SetReplicates(true);
 	SetReplicateMovement(true);
 }
@@ -51,6 +53,7 @@ void ASExplosive::OnHealthChanged(USHealthComponent* OwningHealthComp, float Hea
 
 		MeshComp->AddImpulse(FVector::UpVector * ExplosionImpulse, NAME_None, true);
 
+		UGameplayStatics::ApplyRadialDamage(GetWorld(), Damage, GetActorLocation(), RadialForceComp->Radius, UDamageType::StaticClass(), TArray<AActor*>(), this, InstigatedBy);
 		PlayEffects();
 
 		RadialForceComp->FireImpulse();

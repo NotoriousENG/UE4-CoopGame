@@ -93,7 +93,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASExplosive); \
 	FORCEINLINE static uint32 __PPO__ExplosionEffect() { return STRUCT_OFFSET(ASExplosive, ExplosionEffect); } \
 	FORCEINLINE static uint32 __PPO__RadialForceComp() { return STRUCT_OFFSET(ASExplosive, RadialForceComp); } \
 	FORCEINLINE static uint32 __PPO__ExplosionImpulse() { return STRUCT_OFFSET(ASExplosive, ExplosionImpulse); } \
-	FORCEINLINE static uint32 __PPO__bExploded() { return STRUCT_OFFSET(ASExplosive, bExploded); }
+	FORCEINLINE static uint32 __PPO__bExploded() { return STRUCT_OFFSET(ASExplosive, bExploded); } \
+	FORCEINLINE static uint32 __PPO__Damage() { return STRUCT_OFFSET(ASExplosive, Damage); }
 
 
 #define CoopGame_Source_CoopGame_Public_SExplosive_h_11_PROLOG

@@ -157,6 +157,10 @@ void EmptyLinkFunctionForGeneratedCodeSExplosive() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Damage_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_Damage;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bExploded_MetaData[];
 #endif
 		static void NewProp_bExploded_SetBit(void* Obj);
@@ -203,6 +207,13 @@ void EmptyLinkFunctionForGeneratedCodeSExplosive() {}
 		{ "ModuleRelativePath", "Public/SExplosive.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASExplosive_Statics::NewProp_Damage_MetaData[] = {
+		{ "Category", "Damage" },
+		{ "ModuleRelativePath", "Public/SExplosive.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ASExplosive_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0020080000010001, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASExplosive, Damage), METADATA_PARAMS(Z_Construct_UClass_ASExplosive_Statics::NewProp_Damage_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASExplosive_Statics::NewProp_Damage_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASExplosive_Statics::NewProp_bExploded_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SExplosive.h" },
@@ -259,6 +270,7 @@ void EmptyLinkFunctionForGeneratedCodeSExplosive() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASExplosive_Statics::NewProp_MeshComp = { "MeshComp", nullptr, (EPropertyFlags)0x00200800000a0009, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASExplosive, MeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASExplosive_Statics::NewProp_MeshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASExplosive_Statics::NewProp_MeshComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASExplosive_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosive_Statics::NewProp_Damage,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosive_Statics::NewProp_bExploded,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosive_Statics::NewProp_ExplosionImpulse,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASExplosive_Statics::NewProp_RadialForceComp,
@@ -294,7 +306,7 @@ void EmptyLinkFunctionForGeneratedCodeSExplosive() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASExplosive, 417385246);
+	IMPLEMENT_CLASS(ASExplosive, 4102626692);
 	template<> COOPGAME_API UClass* StaticClass<ASExplosive>()
 	{
 		return ASExplosive::StaticClass();

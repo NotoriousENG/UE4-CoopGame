@@ -45,6 +45,9 @@ protected:
 	UPROPERTY(ReplicatedUsing=OnRep_Exploded)
 	bool bExploded;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Damage")
+	float Damage;
+
 	void PlayEffects();
 
 	UFUNCTION()

@@ -98,6 +98,18 @@ void ASWeapon::Fire()
 
 			UGameplayStatics::ApplyPointDamage(HitActor, ActualDamage, ShotDirection, Hit, MyOwner->GetInstigatorController(), MyOwner, DamageType);
 
+			if (HitActor)
+			{
+				UMeshComponent* mesh = Cast<UMeshComponent>(HitActor->GetComponentByClass(UMeshComponent::StaticClass()));
+
+				if (mesh)
+				{
+					float Force = 10000;
+					mesh->AddImpulseAtLocation(-Hit.Normal * Force, Hit.Location);
+				}
+			}
+			
+
 			PlayImpactEffects(SurfaceType, Hit.ImpactPoint);
 
 			TracerEndPoint = Hit.ImpactPoint;
