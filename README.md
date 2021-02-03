@@ -15,7 +15,7 @@ https://drive.google.com/file/d/1pzXfsJ_qMd3QFAqhFSS5mOH-G4gKfkhd/view?usp=shari
 
 # Network Play
 #### Click Host button on start, any devices on your LAN can join your game by pressing find match
-#### If all players die you will need to close all instances of the game to reconnect
+#### If all players die the game closes
 
 # Close game
 #### Alt + F4
