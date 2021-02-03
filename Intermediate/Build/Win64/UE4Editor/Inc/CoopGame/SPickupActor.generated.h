@@ -13,18 +13,18 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COOPGAME_SPickupActor_generated_h
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_SPARSE_DATA
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_RPC_WRAPPERS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_SPARSE_DATA
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execRespawn);
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execRespawn);
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_INCLASS_NO_PURE_DECLS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesASPickupActor(); \
 	friend struct Z_Construct_UClass_ASPickupActor_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(ASPickupActor)
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_INCLASS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesASPickupActor(); \
 	friend struct Z_Construct_UClass_ASPickupActor_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ASPickupActor)
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_STANDARD_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ASPickupActor(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ASPickupActor) \
@@ -55,7 +55,7 @@ private: \
 public:
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_ENHANCED_CONSTRUCTORS \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ASPickupActor(ASPickupActor&&); \
@@ -66,34 +66,34 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ASPickupActor); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ASPickupActor)
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_PRIVATE_PROPERTY_OFFSET \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__SphereComp() { return STRUCT_OFFSET(ASPickupActor, SphereComp); } \
 	FORCEINLINE static uint32 __PPO__DecalComp() { return STRUCT_OFFSET(ASPickupActor, DecalComp); } \
 	FORCEINLINE static uint32 __PPO__PowerUpClass() { return STRUCT_OFFSET(ASPickupActor, PowerUpClass); } \
 	FORCEINLINE static uint32 __PPO__CooldownDuration() { return STRUCT_OFFSET(ASPickupActor, CooldownDuration); }
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_11_PROLOG
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_GENERATED_BODY_LEGACY \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_12_PROLOG
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_RPC_WRAPPERS \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_INCLASS \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_STANDARD_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_RPC_WRAPPERS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_INCLASS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define CoopGame_Source_CoopGame_Public_SPickupActor_h_14_GENERATED_BODY \
+#define CoopGame_Source_CoopGame_Public_SPickupActor_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_PRIVATE_PROPERTY_OFFSET \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_SPARSE_DATA \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_INCLASS_NO_PURE_DECLS \
-	CoopGame_Source_CoopGame_Public_SPickupActor_h_14_ENHANCED_CONSTRUCTORS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_PRIVATE_PROPERTY_OFFSET \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_SPARSE_DATA \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_INCLASS_NO_PURE_DECLS \
+	CoopGame_Source_CoopGame_Public_SPickupActor_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

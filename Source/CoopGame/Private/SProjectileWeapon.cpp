@@ -9,6 +9,8 @@ void ASProjectileWeapon::Fire()
 	if (GetLocalRole() < ROLE_Authority)
 	{
 		ServerFire();
+
+		return;
 	}
 	AActor* MyOwner = GetOwner();
 	if (MyOwner && ProjectileClass)

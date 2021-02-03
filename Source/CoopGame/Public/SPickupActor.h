@@ -8,6 +8,7 @@
 
 class USphereComponent;
 class ASPowerupActor;
+class ASCharacter;
 UCLASS()
 class COOPGAME_API ASPickupActor : public AActor
 {
