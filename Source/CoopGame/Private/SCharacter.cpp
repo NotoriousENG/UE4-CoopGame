@@ -129,13 +129,15 @@ void ASCharacter::SpawnWeapon(TSubclassOf<ASWeapon> WeaponClassToSpawn)
 
 void ASCharacter::SwitchWeapon()
 {
+	if (GetLocalRole() < ROLE_Authority)
+	{
+		ServerSwitchWeapon();
+
+		return;
+	}
+	
 	if (EquipedWeaponClasses.Num() > 1)
 	{
-		if (GetLocalRole() < ROLE_Authority)
-		{
-			ServerSwitchWeapon();
-		}
-		
 		TSubclassOf<ASWeapon> next_weapon;
 
 		CurrentWeaponClassIndex++;
@@ -239,7 +241,6 @@ void ASCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLif
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME(ASCharacter, CurrentWeapon);
-	DOREPLIFETIME(ASCharacter, CurrentWeaponClassIndex);
 	DOREPLIFETIME(ASCharacter, EquipedWeaponClasses);
 	DOREPLIFETIME(ASCharacter, bDied);
 }

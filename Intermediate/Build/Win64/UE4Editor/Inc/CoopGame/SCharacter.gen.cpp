@@ -279,10 +279,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 #endif
 		static const UE4CodeGen_Private::FNamePropertyParams NewProp_WeaponAttachSocketName;
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CurrentWeaponClassIndex_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentWeaponClassIndex;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EquipedWeaponClasses_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_EquipedWeaponClasses;
@@ -352,12 +348,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 #endif
 	const UE4CodeGen_Private::FNamePropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName = { "WeaponAttachSocketName", nullptr, (EPropertyFlags)0x0020080000030001, UE4CodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, WeaponAttachSocketName), METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName_MetaData)) };
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeaponClassIndex_MetaData[] = {
-		{ "ModuleRelativePath", "Public/SCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeaponClassIndex = { "CurrentWeaponClassIndex", nullptr, (EPropertyFlags)0x0020080000000020, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASCharacter, CurrentWeaponClassIndex), METADATA_PARAMS(Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeaponClassIndex_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeaponClassIndex_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_MetaData[] = {
 		{ "Category", "Player" },
 		{ "ModuleRelativePath", "Public/SCharacter.h" },
@@ -414,7 +404,6 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_bDied,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_WeaponAttachSocketName,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeaponClassIndex,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_EquipedWeaponClasses_Inner,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASCharacter_Statics::NewProp_CurrentWeapon,
@@ -451,7 +440,7 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASCharacter, 632211995);
+	IMPLEMENT_CLASS(ASCharacter, 2019739807);
 	template<> COOPGAME_API UClass* StaticClass<ASCharacter>()
 	{
 		return ASCharacter::StaticClass();
@@ -462,13 +451,11 @@ void EmptyLinkFunctionForGeneratedCodeSCharacter() {}
 	{
 		static const FName Name_CurrentWeapon(TEXT("CurrentWeapon"));
 		static const FName Name_EquipedWeaponClasses(TEXT("EquipedWeaponClasses"));
-		static const FName Name_CurrentWeaponClassIndex(TEXT("CurrentWeaponClassIndex"));
 		static const FName Name_bDied(TEXT("bDied"));
 
 		const bool bIsValid = true
 			&& Name_CurrentWeapon == ClassReps[(int32)ENetFields_Private::CurrentWeapon].Property->GetFName()
 			&& Name_EquipedWeaponClasses == ClassReps[(int32)ENetFields_Private::EquipedWeaponClasses].Property->GetFName()
-			&& Name_CurrentWeaponClassIndex == ClassReps[(int32)ENetFields_Private::CurrentWeaponClassIndex].Property->GetFName()
 			&& Name_bDied == ClassReps[(int32)ENetFields_Private::bDied].Property->GetFName();
 
 		checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ASCharacter"));

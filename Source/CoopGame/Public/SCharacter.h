@@ -64,7 +64,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Replicated, Category = "Player")
 	TArray<TSubclassOf<ASWeapon>> EquipedWeaponClasses;
 
-	UPROPERTY(Replicated)
 	int CurrentWeaponClassIndex;
 
 	void SpawnWeapon(TSubclassOf<ASWeapon> WeaponClassToSpawn);
